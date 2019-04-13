@@ -1,0 +1,17 @@
+首先先查看下否则有这个工具。如果运行screen后提示command not found，那么说明我们还没有安装这个工具。
+如果redhat系的linux distribution，那么可以用yum install -y screen 来安装screen。
+安装完毕后在运行screen，会跳出这么一个介绍页面，再按回车键，那么就进入到screen里面啦！
+我们可以在里面运行我们需要的脚本，那么运行完后怎么回到原来的命令行呢？答案是：先按CTRL+a，然后再按d。这个就是dettach的意思啦，离开screen的sesio
+ñ
+
+在父界面运行屏幕-ls可以看到现有的屏幕的会话。
+怎么回到这个screen的会话中呢？运行screen -r
+那后面讲一些比较有用的screen的命令。
+Screen分屏，有的时候我们需要边观察一个命令的输出边执行一些操作，开两个CLI是一种解决方式，用screen分屏的功能也能做到。
+首先在screen的session中按CTRL+a，X，这个时候就会出现第二个屏。
+然后按CTRL+a，tab可以在两个屏幕之间自由切换。
+切换到下个屏幕后，没有命令输入的提示符啊，怎么建立呢？
+按CTRL+a c
+还有一个命令要强烈推荐下，可以在detach的模式下跑screen的命令，我经常用这个命令去在后台持续抓包。
+就是在主tty中，运行 screen -dm <你要跑的命令>
+看下图，我运行screen -dm tcpdump，然后再去查看screen的 session时，发现多了一个，但是我并没有进入screen的会话中，也就是并没有attach进去。
