@@ -1,0 +1,11 @@
+rd.break console=tty0
+mount -o remount.rw /sysroot/
+chroot /sysroot
+
+
+echo 123 | passwd --stdin root
+touch /.autorelabel
+
+exit
+
+reboot
